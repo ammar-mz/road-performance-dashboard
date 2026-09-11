@@ -5,6 +5,9 @@ import joblib
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+import os
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 
 st.set_page_config(
     page_title="Road Performance Dashboard",
@@ -29,9 +32,9 @@ def load_data():
 
 @st.cache_resource
 def load_model():
-    model = joblib.load(r'C:\Profesional\Python\Analisis\Project DQLab\best_road_speed_model.pkl')
-    scaler = joblib.load(r'C:\Profesional\Python\Analisis\Project DQLab\road_speed_scaler.pkl')
-    features = joblib.load(r'C:\Profesional\Python\Analisis\Project DQLab\road_speed_features.pkl')
+    model = joblib.load(os.path.join(BASE_DIR, 'best_road_speed_model.pkl'))
+    scaler = joblib.load(os.path.join(BASE_DIR, 'road_speed_scaler.pkl'))
+    features = joblib.load(os.path.join(BASE_DIR, 'road_speed_features.pkl'))
     return model, scaler, features
 
 df = load_data()
