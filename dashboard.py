@@ -5,6 +5,7 @@ import joblib
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
+from sklearn.preprocessing import StandardScaler
 import os
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
