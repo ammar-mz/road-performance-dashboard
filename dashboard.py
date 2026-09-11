@@ -438,6 +438,7 @@ elif page == "Interactive Prediction":
             'Min Lebar Jalan': min_lebar, 'HRSI': hrsi,
             'Sudut Jalan': sudut_jalan, 'Average of DISTANCE_METER': distance
         }])
+        input_df = input_df[features]
 
         input_scaled = scaler.transform(input_df)
         prediction = model.predict(input_scaled)[0]
