@@ -420,18 +420,18 @@ elif page == "Interactive Prediction":
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        grade = st.slider("Grade", 0.0, 0.30, 0.05, 0.01,
-                          help="Kemiringan jalan (0 = datar, 0.30 = sangat curam)")
-        crossfall = st.slider("Crossfall", -0.05, 0.10, 0.02, 0.01,
+        grade = st.slider("Grade", 0.001, 0.089, 0.045, 0.001,
+                          help="Kemiringan jalan (0 = datar, 0.089 = sangat curam)")
+        crossfall = st.slider("Crossfall", 0.004, 0.041, 0.022, 0.001,
                               help="Kemiringan melintang jalan")
-        lebar_jalan = st.slider("Lebar Jalan (m)", 5.0, 50.0, 25.0, 1.0)
+        lebar_jalan = st.slider("Lebar Jalan (m)", 17.0, 78.0, 29.5, 0.5)
     with col2:
-        min_lebar = st.slider("Min Lebar Jalan (m)", 5.0, 50.0, 20.0, 1.0)
+        min_lebar = st.slider("Min Lebar Jalan (m)", 12.0, 77.0, 25.5, 0.5)
         hrsi = st.slider("HRSI", 0.0, 15.0, 7.0, 0.5,
                          help="Haul Road Serviceability Index")
     with col3:
         sudut_jalan = st.slider("Sudut Jalan (derajat)", 0, 180, 30, 5)
-        distance = st.slider("Distance (m)", 50.0, 5000.0, 500.0, 50.0)
+        distance = st.slider("Distance (km)", 0.1, 2.7, 0.53, 0.01)
 
     if st.button("Predict Speed", type="primary", use_container_width=True):
         input_df = pd.DataFrame([{
